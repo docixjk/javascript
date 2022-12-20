@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 자르기</title>
+    <style>
+        label { display: inline-block; width: 70px; text-align: right; }
+        #btn {width : 250px; }
+    </style>
+</head>
+<body>
+    <textarea id="result" rows="3" cols="35">1, 홍길동, hong, 2019/12/01</textarea>
+    <div>
+        <button id="btn">텍스트필드에 값 넣기</button>
+    </div>
+    <div>
+        <label>번호</label>
+        <input id="u_num" name="no" type="text">
+    </div>
+    <div>
+        <label>이름</label>
+        <input id="u_name" name="name" type="text">
+    </div>
+    <div>
+        <label>아디</label>
+        <input id="u_id" name="id" type="text">
+    </div>
+    <div>
+        <label>등록일자</label>
+        <input id="u_time" name="regDate" type="text">
+    </div>
+
+    <script>
+        window.addEventListener("load", function(){
+
+            btnEvent();
+        });
+        function btnEvent(){
+            btn.addEventListener("click", function(){
+                let text_a = document.querySelector('#result').value;
+                text_b = text_a.split(",");
+
+                document.getElementById('u_num').value = text_b[0];
+                document.getElementById('u_name').value = text_b[1];
+                document.getElementById('u_id').value = text_b[2];
+                document.getElementById('u_time').value = text_b[3];
+                //함수를 이용해서 배열에 있는 value 를 위에 div속 input칸에 출력이 되어야한다
+                // u_num.innerText = text_b[0];
+                
+                console.log(text_b);
+                //코드 작성
+            });
+        }
+    </script>
+</body>
+</html>

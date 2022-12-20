@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 ( 텍스트 필드 )</title>
+    <style>
+        #result { border : 1px solid blue; 
+         width : 300px; height : 200px; }
+    </style>
+</head>
+<body>
+    <input type="text" id="txtFruit">
+    <button type="button" id="btnAdd">추가</button>
+    <button type="button" id="btnDelete">삭제</button>
+    <button type="button" id="btnSearch">검색</button>
+    <div id="result"></div>
+    <script>
+    let txtArr = [];
+    window.onload = function(){
+        btnAdd.addEventListener("click",funcAdd)
+        btnDelete.addEventListener("click",funcDelete)
+        btnSearch.addEventListener("click",funcSearch)
+        txtFruit.addEventListener("focus", function(){this.select();})
+    }
+    function funcAdd(){
+        // console.log(document.getElementById('result').innerHTML); //테스트용
+        
+        let txt1 = document.getElementById('txtFruit').value; 
+         
+        txtArr.push(txt1);
+        document.getElementById('result').innerHTML = txtArr;
+        // document.getElementById('result').append(',',txt1);
+    
+        //텍스트필드에 입력한 값을 배열에 추가하고 배열을 div에 출력
+        //코드 작성
+    }
+    function funcDelete(){
+        let txt2 = document.getElementById('txtFruit').value; 
+        for(let i = 0 ; i < txtArr.length; i++){
+            if(txt2==txtArr[i])
+            txtArr.splice(i,1);
+        }
+        
+        document.getElementById('result').innerHTML = txtArr;
+        //텍스트필드에 입력한 값을 배열에서 삭제하고 배열을 div에 출력
+        //코드 작성
+
+    }
+    function funcSearch(){
+        let text = document.getElementById('txtFruit').value; 
+        let result = txtArr.indexOf(text);
+        document.getElementById('result').innerHTML = result;
+        //텍스트필드에 입력한 값을 배열에서 검색해서 검색위치를 div출력
+        //코드 작성
+    }
+    </script>
+</body>
+</html>
