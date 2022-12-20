@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>date</title>
+  <style>
+    input{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  
+  날짜 <input value="2022"> / <input value="12"> / <input value="16"> / <input value="100">
+      <button id="btn">계산</button>
+
+  <script>
+    btn.onclick = function(){
+      //input 값 읽기
+      let year = (document.querySelectorAll("input")[0].value)*1;
+      let month = (document.querySelectorAll("input")[1].value)*1;
+      let day = (document.querySelectorAll("input")[2].value)*1;
+      let num = (document.querySelectorAll("input")[3].value)*1;
+
+      //날짜 객체 생성 + 100
+      //월은 1빼고 계산 0~11
+      //계산한 날짜를 출력
+      let day100 = new Date(year, month, day+num);
+      console.log(day100.getFullYear() + "년 " + day100.getMonth() + "월 " + day100.getDate() + "일");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event</title>
+  <style>
+    ul{
+      list-style: none;
+    }
+    li{
+      display: inline;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+      font: 20px bold;
+      padding-right: 20px;
+    }
+    #result{
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>alert</h1>
+  <ul>
+    <li><a href="#" onclick="alert('버튼을 클릭했습니다.')">그린</a></li>
+    <li><a href="#" onclick="alert('버튼을 클릭했습니다.')">오렌지</a></li>
+    <li><a href="#" onclick="alert('버튼을 클릭했습니다.')">퍼플</a></li>
+  </ul>
+  
+  <h1>function</h1>
+  <ul>
+    <li><a href="#" onclick="changeBg('green')">그린</a></li>
+    <li><a href="#" onclick="changeBg('orange')">오렌지</a></li>
+    <li><a href="#" onclick="changeBg('purple')">퍼플</a></li>
+  </ul>
+  <div id="result">test</div>
+  <script>
+    function changeBg(color){
+      result.style.backgroundColor = color;
+    }
+  </script>
+</body>
+</html>

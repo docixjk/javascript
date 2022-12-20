@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두 수 비교하기</title>
+</head>
+<body>
+  <script>
+    /*
+      두 정수 A와 B가 주어졌을 때, A와 B를 비교하는 프로그램을 작성하시오.
+      첫째 줄에 A와 B가 주어진다. A와 B는 공백 한 칸으로 구분되어져 있다.
+      첫째 줄에 다음 세 가지 중 하나를 출력한다.
+
+      A가 B보다 큰 경우에는 '>'를 출력한다.
+      A가 B보다 작은 경우에는 '<'를 출력한다.
+      A와 B가 같은 경우에는 '=='를 출력한다.
+    */
+    let first = prompt("첫번째 수를 입력하세요");
+    let last = prompt("두번째 수를 입력하세요");
+    let num1 = first*1;
+    let num2 = last*1;
+
+    if(num1 > num2){
+      alert(">");
+    }else if(num1 < num2){
+      alert("<");
+    }else if(num1 == num2){
+      alert("==");
+    }
+
+
+  </script>
+</body>
+</html>

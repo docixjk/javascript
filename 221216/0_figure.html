@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>figure</title>
+</head>
+<body>
+  <script>
+    /* 
+      1.기술점수 계산
+        1.최댓값을 계산
+        2.최솟값을 계산
+        3.합계를 계산
+        4.합계에서 최댓값과 최솟값을 뺀다
+        5.평균 계산 : 합계 / (심사위원수 2)
+      2.예술점수 계산
+      3.예술점수 합계
+    */
+    
+    //매개변수  배열 (정수)
+    //리턴      합계
+    
+    //1.최댓값을 계산
+    function max(score){ //최댓값 함수 
+      let max_s = score[0]; //최댓값 변수 선언
+      for(let i=0; i < score.length; i++){ //점수 배열 수 만큼 반복
+        //최댓값과 배열의 요소와 비교후 요소 값이 클때 변수에 저장
+        if(max_s < score[i]){
+          max_s = score[i];
+        }
+
+      }//최댓값 리턴
+      return max_s;
+    }
+    //2.최솟값을 계산
+    function min(score){ //최솟값 함수
+      let min_s = score[0]; //최솟값 변수 선언
+      for(let i=0; i < score.length; i++){ //점수 배열 수 만큼 반복
+        //최솟값과 배열의 요소와 비교후 요소 값이 작을때 변수에 저장
+        if(min_s > score[i]){
+          min_s = score[i];
+        }
+      }//최댓값 리턴
+      return min_s;
+    }
+    //3.합계를 계산
+    function total(score){ //합계 함수
+      let sum = 0;
+      for(let i=0; i < score.length; i++){
+        sum += score[i];
+      }
+      return sum;
+    }
+    let tes_score = [3,4,1,5]
+
+    let tes_max = max( tes_score );
+    let tes_min = min( tes_score );
+    let tes_total = total( tes_score );
+
+    //4.합계에서 최댓값과 최솟값을 뺀다
+    //5.평균 계산 : 합계 / (심사위원수 2)
+    let tes_avg = ( tes_total - tes_max - tes_min ) / (tes_score.length-2);
+
+    console.log( "기술점수 최댓값 " + max( tes_score ) );
+    console.log( "기술점수 최솟값 " + min( tes_score ) );
+    console.log( "기술점수 총 " + " 합 " + total( tes_score ) );
+    console.log( "기술점수 평균값 " + tes_avg );
+
+    console.log(" ");
+    //예술점수
+    let pcs_score = [2,3,3,4];
+
+    let pcs_max = max( pcs_score );
+    let pcs_min = min( pcs_score );
+    let pcs_total = total( pcs_score );
+    let pcs_avg = ( pcs_total / pcs_score.length);
+    
+    console.log( "예술점수 최댓값 " + max( pcs_score ) );
+    console.log( "예술점수 최솟값 " + min( pcs_score ) );
+    console.log( "예술점수 총 " + " 합 " + total( pcs_score ) );
+    console.log( "예술점수 평균값 " + pcs_avg );
+    
+
+
+  </script>
+</body>
+</html>

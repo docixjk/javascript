@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알람 시계</title>
+</head>
+<body>
+  <script>
+    /*
+      "45분 일찍 알람 설정하기"
+
+      첫째 줄에 두 정수 H와 M이 주어진다.
+      (0 ≤ H ≤ 23, 0 ≤ M ≤ 59)
+      그리고 이것은 현재 상근이가 설정한 놓은 알람 시간 H시 M분을 의미한다.
+
+      입력 시간은 24시간 표현을 사용한다.
+      24시간 표현에서 하루의 시작은 0:0(자정)이고,
+      끝은 23:59(다음날 자정 1분 전)이다.
+      시간을 나타낼 때, 불필요한 0은 사용하지 않는다.
+
+      첫째 줄에 상근이가 창영이의 방법을 사용할 때,
+      설정해야 하는 알람 시간을 출력한다. (입력과 같은 형태로 출력하면 된다.)
+    */
+    let num = prompt("시(0~23)와 분(0~59)을 입력").split(" ");
+    let hh = num[0]*1;
+    let mm = num[1]*1;
+
+    //0 <= hh => 23 , 0 <= mm => 59
+    //자정은 hh = 0 , mm = 0 시는 23을 넘어서지 않는다, 분은 59를 넘어서지 않는다
+    //23을 넘어가면 0으로 59를 넘어가면 1시간을 더하며 0으로
+
+    if((0 <= hh && hh <= 23) && (0 <= mm && mm <= 59)){
+      mm -= 45;
+      if(mm < 0){
+        mm += 60;
+        hh--;
+      }else if(hh == -1){
+        hh = 23;
+    }
+      }else{alert("(19)부적절한 단어입니다.(19)");}
+      
+    alert(hh + "시 " + mm + "분");
+
+  </script>
+</body>
+</html>

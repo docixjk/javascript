@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>텍스트필드 배열</title>
+  <style>
+    #result {
+      border : 1px solid blue; 
+      width : 300px; height : 200px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="txtFruit">
+  <button type="button" id="btnAdd">추가</button>
+  <button type="button" id="btnDelete">삭제</button>
+  <button type="button" id="btnSearch">검색</button>
+  <div id="result"></div>
+  <script>
+    let txtArr = [];
+    window.onload = function(){
+      btnAdd.addEventListener("click",funcAdd);
+      btnDelete.addEventListener("click",funcDelete);
+      btnSearch.addEventListener("click",funcSearch);
+      txtFruit.addEventListener("focus", function(){this.select();});
+    }
+    function funcAdd(){
+      //텍스트필드에 입력한 값을 배열에 추가하고 배열을 div에 출력
+      //코드 작성
+      let txt1 = document.getElementById('txtFruit').value;
+      document.getElementById('result').append(','+txt1);
+
+    }
+    function funcDelete(){
+    //텍스트필드에 입력한 값을 배열에서 삭제하고 배열을 div에 출력
+    //  코드 작성
+    }
+    function funcSearch(){
+    //텍스트필드에 입력한 값을 배열에서 검색해서 검색위치를 div출력
+    //  코드 작성
+    }
+  </script>
+</body>
+</html>

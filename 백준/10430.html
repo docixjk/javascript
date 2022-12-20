@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나머지 계산</title>
+</head>
+<body>
+  <script>
+    /*
+      (A+B)%C는 ((A%C) + (B%C))%C 와 같을까?
+      (A×B)%C는 ((A%C) × (B%C))%C 와 같을까?
+      세 수 A, B, C가 주어졌을 때, 위의 네 가지 값
+
+      첫째 줄에 A, B, C가 순서대로 주어진다. (2 ≤ A, B, C ≤ 10000)
+
+      첫째 줄에 (A+B)%C, 
+      둘째 줄에 ((A%C) + (B%C))%C, 
+      셋째 줄에 (A×B)%C, 
+      넷째 줄에 ((A%C) × (B%C))%C를 출력한다.
+    */
+
+    let num = prompt("숫자 세 개를 입력 하슈").split(" ");
+    let a = num[0]*1;
+    let b = num[1]*1;
+    let c = num[2]*1;
+
+    function Print(){
+      console.log((a+b)%c);
+      console.log(((a%c) + (b%c))%c);
+      console.log((a*b)%c);
+      console.log(((a%c) * (b%c))%c);
+    }
+
+    if((a+b)%c == ((a%c) + (b%c))%c){
+      Print();
+    }else if((a*b)%c == ((a%c) * (b%c))%c){
+      Print();
+    }
+
+
+  </script>
+</body>
+</html>

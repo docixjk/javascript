@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>letVar</title>
+</head>
+<body>
+  <script>
+    /*
+      let : 중복 선언 안됨 (권장)
+            블럭 범위
+      var : 중복 선언 됨
+            함수 범위
+    */
+    
+    //올해 윤년
+    let result = 2022 % 4;
+    
+    //요일 
+    let week = 15 % 7; //0~6사이의 값
+    let weekName = ['월', '화', '수', '목', '금', '토', '일'];
+    console.log(weekName[week])
+
+    //해당월의 마지막날이 몇일인지?
+    let lastDay = [31, 28, 31, 30, 31 ,30, 31, 31, 30, 31, 30, 31]
+
+    //월을 입력 1~12
+    let month = prompt("해당 월을 입력해주세요"); 
+
+    //마지막날 출력
+    console.log(month + " 월의 마지막날은 " + lastDay[month-1] + "입니다.");
+    //배열의 시작은 0임 0~11이라 -1을 해주어야함 ex) 12월은 12값이 없으므로 12-1
+
+  </script>
+</body>
+</html>

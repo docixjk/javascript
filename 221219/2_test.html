@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="add">추가</button>
+  <button id="ddel">삭제</button>
+  <div id="result"></div>
+  <script>
+    let fruit = new Array();  // = [](간단)
+    add.onclick = function(){ //추가
+      fruit.push(txt.value); //추가
+      result.innerText = fruit.toString();
+      txt.value = ''; //입력칸 내용 삭제
+    }
+
+    ddel.onclick = function(){ //삭제
+      let idx = fruit.indexOf(txt.value);
+      if(idx >= 0){
+        let el = fruit.splice(idx, 1);
+        alert(el);
+        result.innerText = fruit.toString();
+      }
+    }
+
+
+    // ddel.onclick = function(){ //삭제
+    //   for(let i=0; i<fruit.length; i++){
+    //     if(fruit[i] === txt.value){ //찾아서 삭제하기 위한 조건
+    //       fruit.splice(i, 1);  //pop = 마지막 삭제 , shift = 처음 삭제 , splice = 선택 삭제
+    //       result.innerText = fruit.toString(); 
+    //       i--;
+    //     }
+    //   } 
+    // }
+  </script>
+</body>
+</html>

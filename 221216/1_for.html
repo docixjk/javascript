@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for문 합계</title>
+</head>
+<body>
+  <script>
+    /* 1 ~ 10 까지 합 계산 프로그램 */
+
+    //합계를 저장한 변소 선언 0 초기화
+    let sum = 0;
+
+    // 10까지 반복 
+    for(let i = 1; i <= 10; i++){ 
+      sum += i; 
+    }//합계변수에 수를 더함
+
+    //합계 출력
+    console.log(sum);
+
+  ;//1~100 합
+    
+    total(10);
+    function total(num){
+      let sum = 0;
+      for(let i = 1; i <= num; i++){ 
+        sum += i; 
+      }
+    }
+    console.log(sum);
+
+  </script>
+</body>
+</html>

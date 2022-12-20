@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      작성일자 : 2022
+      작성자 : 홍길동키호테
+      내용 : 숫자 매추기 게임
+    */
+    let num = Math.floor(Math.random() * 10) +1; //임의 수 생성
+    let turn = 0;
+
+    while (true){ //맞을때 까지 반복
+      let guess = prompt("1~10 수를 입력 (0은 종료)","5"); //사용자 수 입력
+      turn ++;
+      if(num == guess){ //입력한 수와 동일할 시 종료
+        alert("정답");
+        break;
+      }else if(turn >= 3){ // 턴수 3회 이상시 종료
+        alert("께임 오버");
+        break;
+      }else if (guess == 0){ // 입력이 0 이면 종료
+        alert("강제 종료"); 
+        break;
+      }else if(num < guess){
+        alert("작다"); //입력 수가 작을때
+      }else{
+        alert("크다"); //입력 수가 클떄
+      }
+    }
+  </script>
+</body>
+</html>

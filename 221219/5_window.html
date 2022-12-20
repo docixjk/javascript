@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window</title>
+  <style>
+    img{
+      width: 400px;
+      height: 400px;
+    }
+    button{
+      width: 150px;
+      height: 50px;
+      background-color: rgb(59, 228, 228);
+      font: 25px bold;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button type="button" id="btnOpen">열기</button>
+    <button type="button" id="btnClose">닫기</button>
+    <button type="button" id="btnMove">이동</button>
+    <button type="button" id="btnGeoLocation">현위치</button>
+    <button type="button" id="btnLink">페이지이동</button>
+    <button type="button" id="btnRef">참조</button>
+  </div>
+  <!-- 현위치 보여줄 곳 -->
+  <div id="x"></div> 
+  <script>
+    let popup;
+
+    btnGeoLocation.onclick = getLocation;
+
+    btnLink.onclick = function(){
+      location.assign("6_location.html");
+    }
+    btnOpen.onclick = function(){
+      let width = 400;
+      let height = 400;
+      let left = 100;
+      let top = 100;
+      popup = window.open('7_popup.html', 'random' , 'width=400, height=400, left='+ left', top='+ top);
+      if(popup == null){
+        alert("팝업 차단을 해제하세요");
+      }
+    }
+    btnClose.onclick = function(){
+      popup.close();
+    }
+    btnMove.onclick = function(){
+      popup.moveBy(100,0);
+    }
+    // btnOpen.click();
+
+    function getLocation() { //현재위치 알려줄 함수
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude +
+      "<br>Longitude: " + position.coords.longitude;
+    }
+
+
+    // console.log(window.innerWidth, window.innerHeight);
+    // console.log(window.outerWidth, window.outerHeight);
+    // console.log(window.screenX, window.screenY);
+    // console.log(window.scroolX, window.scroolY);
+
+    console.log(navigator.userAgent);
+  </script>
+</body>
+</html>

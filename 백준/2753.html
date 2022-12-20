@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>윤년</title>
+</head>
+<body>
+  <script>
+    let year = prompt("년도 입력","2000");
+    let num = year % 4;
+    document.write(num+"\n");
+    num = year % 100;
+    document.write(num+"\n");
+    num = year % 400;
+    document.write(num+"\n");
+
+
+
+    // if((year % 4 && year % 100) || year % 400){
+    //   document.write("1");
+    // }else{
+    //   document.write("0");
+    // }
+
+  </script>
+</body>
+</html>

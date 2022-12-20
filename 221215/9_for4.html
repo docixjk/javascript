@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for 4 예제</title>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+  </table>
+  <script>
+    //전체 성적 합
+    let td = document.querySelectorAll("td"); //배열식으로 들어가 있음
+    let sum = 0; //합계
+
+    for(i = 0; i < td.length; i++){ //td 값 더하기
+      sum += parseInt(td[i].innerText); //parseInt을 이용해 문자열을 숫자로 변환 할 수 있다
+    }                                   //또는 *1을 통해 숫자로 만들 수 있다
+    console.log("총합 " + sum); //출력
+
+  </script>
+</body>
+</html>

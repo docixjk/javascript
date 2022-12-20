@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom 꽁부를 해보아요</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="addBtn1">추가</button>
+  <input id="txt2">
+  <button id="addBtn2">추가2</button>
+  <select id="itemList">
+    <option value="apple">사과</option>
+  </select>
+  <script>
+    addBtn1.onclick = function(){
+      //li태그 생성
+      let opt = document.createElement("option"); //<li>
+      //태그에 속성 지정
+      //속성에 대한 값 추가, 변경
+      opt.setAttribute("value",txt.value); //<li class="item">
+      //태그 내용 변경
+      opt.innerText = txt2.value;  //<li class="item">test
+        // let tnode = document.createTextNode(txt2.value);
+        // option.appendChild(tnode);
+      //부모 태그에 연결
+      itemList.appendChild(opt);
+    }
+    addBtn2.onclick = function(){
+      itemList.innerHTML += `<option value="${txt.value}">${txt2.value}</option>`;
+                              // 작은 땀표 아님 물결표시 !! (   `   )
+                              // 안에 ${ }를 사용하면 변수를 넣을 수 있다.
+    }
+  </script>
+</body>
+</html>

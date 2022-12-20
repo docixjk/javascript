@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom 꽁부를 해보아요</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="addBtn">추가</button>
+  <ul id="itemList">
+    <li class="item">test</li>
+  </ul>
+  <script>
+    // addBtn.onclick = function(){
+    //   //li태그 생성
+    //   let li = document.createElement("li"); //<li>
+    //   //태그에 속성 지정
+    //   li.setAttribute("class", "item"); //<li class="item">
+    //   //태그 내용 변경
+    //   li.innerText = txt.value;  //<li class="item">test
+    //   //부모 태그에 연결
+    //   itemList.appendChild(li);
+    // }
+    addBtn.onclick = function(){
+      itemList.innerHTML += `<li class="item">${txt.value}</li>`;
+    }
+  </script>
+</body>
+</html>

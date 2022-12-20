@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function</title>
+</head>
+<body>
+  <script>
+    //두 수의 합을 계산하는 함수를 선언
+    function sum(num1,num2){
+      sum = num1 + num2;
+      document.write(sum);
+    }
+    
+    //함수 호출해서 실행
+    sum(10414,12423);
+
+    function sum2(num1,num2){
+      sum2 = num1 + num2;
+      return sum2;
+    }
+    let total = sum2(100,200);
+    document.write(sum2);
+
+    function print(param){
+      console.log("----------------------");
+      console.log(total);
+      console.log("----------------------");
+    }
+    print(total);
+  </script>
+</body>
+</html>
