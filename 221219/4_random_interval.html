@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>random_interval</title>
+</head>
+<body>
+  <img src="IMG/카리나.jpg" id="img">
+  <script>
+    let imgArr = new Array();
+    imgArr.push("IMG/축식1.jpg");
+    imgArr.push("IMG/춘식2.jpg");
+    imgArr.push("IMG/춘식3.jpg");
+
+    // 기본 0~1 floor로 소수점 짜르기
+    // function changeImg(){
+    //   let num = Math.floor(Math.random()*imgArr.length);
+    //   img.src = imgArr[num];
+    // }
+
+    window.setInterval(()=>{
+      let num = Math.floor(Math.random()*imgArr.length);
+      img.src = imgArr[num]
+    },500);
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for 6</title>
+</head>
+<body>
+  <script>
+    // let arr = [2,5,10,20,4];
+    // for(let i=0; i<arr.length; i++){
+    //   console.log(arr[i]);
+    // }
+    
+    let i;
+    let lotto = [];
+    
+    for(let i=0;i<6;i++){
+      let num = Math.floor(Math.random()*10)+1;
+      if(lotto.indexOf(num) == -1){
+        lotto.push(num);
+        i--;
+      }
+    }
+
+    // while(i < 6){
+    //   let num = Math.floor(Math.random()*45)+1;
+    //   if(lotto.indexOf(num) == -1){
+    //     lotto.push(num);
+    //     i++;
+    //   }
+    // }
+    console.log(lotto);
+
+  </script>
+</body>
+</html>

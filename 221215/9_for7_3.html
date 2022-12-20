@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let tmp = prompt("비교할 수 입력");
+    let arr = [3,4,6,10,2,9];
+    let num = 0;
+    //배열에서 5보다 큰 수가 몇개인지 카운트
+    for(let i=0;i<arr.length;i++){
+      if(arr[i] > tmp){ //입력받은 수 보다 큰 것
+        num++; // 카운트하기
+      }
+    }
+    console.log(num); //큰게 몇개인가
+  </script>
+</body>
+</html>
