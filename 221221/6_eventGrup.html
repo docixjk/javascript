@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eventGrup</title>
+  <style>
+    div{ margin: 5px; padding: 10px; border: 1px solid blue; }
+  </style>
+</head>
+<body>
+  
+  <div class="ele" id="apple">사과</div>
+  <div class="ele" id="banana">바나나</div>
+  <div class="ele" id="kiwi">키위</div>
+
+  <div id="basket"></div>
+
+  <div id="template" style="display: none;">
+    <div class="fruit" title="사과"><span>사과</span></div>
+  </div>
+
+  <script>
+
+    document.body.addEventListener("click",function(ev){
+      
+      if(!ev.target.classList.contains("ele")){
+        return;
+      }else{let content = event.target.innerText
+        let div = `<div class="fruit" title="${content}"><span>${content}</span></div>`
+        basket.innerHTML += div
+      }
+    })
+    //이벤트 위임(그룹이벤트) : 부모태그에 이벤트를 지정
+    basket.addEventListener("click",function(ev){
+      let node = ev.target //실제로 이벤트가 발생한 대산 (태그=타겟)
+      if(!ev.target.classList.contains("fruit")){//div이면 본인 삭제
+        dode.remove()
+      }else if(node.nodeName == "SPAN"){ //span태그이면 부모 div선택
+        node.parentNode.remove()
+      }
+    })
+      
+  </script>
+</body>
+</html>
