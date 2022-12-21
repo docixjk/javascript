@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>classlist</title>
+  <style>
+    .hide{
+    display: none;  
+    }
+    .panel{
+      color: blue;
+      font: 10em bold;
+    }
+    </style>
+</head>
+<body>
+  <h3>class 속성을 제어</h3>
+  <button id="btn">버러우</button>
+  <div class="panel"> div </div>
+  <script>
+    btn.onclick = function(){
+      //클래스중 hide라는 클래스를 토글한다 (on off)
+      document.querySelector("div").classList.toggle("hide")
+    }
+  </script>
+</body>
+</html>

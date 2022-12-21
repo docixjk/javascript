@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>append2</title>
+  <style>
+    div{ margin: 5px; padding: 10px; border: 1px solid blue; }
+  </style>
+</head>
+<body>
+  
+  <div class="ele" id="apple">사과</div>
+  <div class="ele" id="banana">바나나</div>
+  <div class="ele" id="kiwi">키위</div>
+
+  <div id="basket"></div>
+
+  <div id="template" style="display: none;">
+    <div class="fruit" title="사과"><span>사과</span></div>
+  </div>
+
+  <script>
+    //과일(class가 ele)들을 불러와 ele변수에 집어넣음(배열)
+    let ele = document.querySelectorAll(".ele")
+    for(let i=0;i<ele.length;i++){//for문을 통해 클릭한 태그를 찾음
+
+      ele[i].onclick = function(){ //하나의 클래스로 묶여 원클릭 함수하나로 가능
+        let content = event.target.innerText //컨텐츠라는 변수에 클릭한 텍스트를 넣음
+        let div = template.querySelector(".fruit").cloneNode(true) //복사할 값이 되는 애
+        div.title = content //선택된 컨텐츠의 내용을 변경할 div title 값에 넣음
+        div.querySelector("span").innerText = content // div의 span 값에 컨텐츠 값을 넣음
+        basket.append(div) //빠구니에 수정된 복사값을 넣음
+      }
+    }
+      
+  </script>
+</body>
+</html>

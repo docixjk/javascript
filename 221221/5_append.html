@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>append</title>
+  <style>
+    div{ margin: 5px; padding: 10px; border: 1px solid blue; }
+  </style>
+</head>
+<body>
+  
+  <div id="apple">사과</div>
+  <div id="banana">바나나</div>
+  <div id="kiwi">키위</div>
+  <div id="basket"></div>
+  <script>
+    apple.onclick = function(){ //사과 눌러주면 복사해서 위 basket에 집어넣음
+      //'<div class="fruit" title="사과" id="apple">사과</div>' //createElement, innerText, append
+      let applee = document.createElement('div'); //div 속성 맹들어 변수에 넣기
+      //div.innerHTML = "<span>사과</span>"
+      //span 태그 생성
+      let a_span = document.createElement('span')
+      //span 태그 내용
+      a_span.innerText = '사과'     
+      //span 태그를 div에 추가
+      applee.append(a_span)
+
+      // applee.innerText = '사과';                  //변수속 텍스트(div도 같이됨) 집어넣기
+      // applee.classList.add("fruit")               //className, setAttribute, claaList
+      // applee.title = "사과"
+      // applee.id = "apple"
+      applee.onclick = function(){
+        event.target.remove();
+      }
+      basket.append(applee)                       //basket div에 넣어주기
+    }
+
+    banana.onclick = function(){
+      // basket.append(banana)
+    }
+    kiwi.onclick = function(){
+      // basket.append(kiwi)
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class</title>
+  <style>
+    .hide{
+    display: none;  
+    }
+    div{
+      font: 100px bold;
+    }
+    </style>
+</head>
+<body>
+  <h3>class 속성을 제어</h3>
+  <button id="btn">버러우</button>
+  <div> div </div>
+  <script>
+    btn.onclick = function(){
+      let div = document.getElementsByTagName('div')[0]
+      // div.setAttribute('class','hide') //setAttribute로 변경 (속성이름 , 속성값)
+      // div.className = 'hide' //className으로 변경
+      //현재 클래스 속성을 조회
+      let classValue = div.getAttribute('class')
+
+      if(classValue == 'hide'){         //클래스 속성이 'hide'라면 클래스 삭제
+        div.removeAttribute('class')    //removeAttribute로 클래스 삭제
+      }else{                            //아니면 클래스 생성
+        div.setAttribute('class','hide')//setAttribute로 속성값 추가
+      }
+    }
+  </script>
+</body>
+</html>
