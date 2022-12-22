@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsonmovies</title>
+</head>
+<body>
+  <h3>영화정보</h3>
+  <div id="result"></div>
+  <div id="template" style="display: none;">
+    <div>
+      <strong><span class="rank"></span>위 </strong>
+      <em><span class="movieNm"></span></em><br>
+      개봉일 : <span class="openDt"></span>
+    </div>
+  </div>
+  <!-- <div>
+    <span class="rank">1</span>
+    <span class="movieNm">아바타: 물의 길</span>
+    <span class="openDt">2022-12-14</span>
+  </div> -->
+  <script src="2_jsonMovies.js"></script>
+  <script>
+    let movielist = movies.boxOfficeResult.dailyBoxOfficeList
+    for(let i=0;i<movielist.length;i++){
+      //template의 첫번째 자식을 복사하는 부분
+      let node = template.children[0].cloneNode(true)
+      node.querySelector(".rank").innerText = movielist[i].rank
+      node.querySelector(".movieNm").innerText = movielist[i].movieNm
+      node.querySelector(".openDt").innerText = movielist[i].openDt
+      result.append(node)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="5_todo.css" />
+  </head>
+
+  <body>
+    <div id="myDIV" class="header">
+      <h2 style="margin: 5px">My To Do List</h2>
+      <input type="text" id="myInput" placeholder="Title..." />
+      <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myUL">
+      <!-- <li>내용<span>X</span></li>
+      <li class="checked">내용2<span>X</span></li> -->
+    </ul>
+    <script>
+      (function todo(){
+        //ajax호출
+        let xhr = new XMLHttpRequest()
+        xhr.onload = function(){callback(xhr)}
+        let url = 'https://jsonplaceholder.typicode.com/todos'
+        xhr.open("GET",url)
+        xhr.send()
+      })()
+      function callback(xhr){
+        let todos = JSON.parse(xhr.response)
+        for(let i=0;i<15;i++){
+          myUL.innerHTML += `<li class="${todos[i].completed==true?'checked':''}">${todos[i].title}<span class="close">X</span></li>`
+        }
+      }
+      
+    </script>
+  </body>
+</html>

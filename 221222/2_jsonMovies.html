@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        .no {
+            background-color: yellow;
+        }
+        .title {
+            background-color: lightgreen;
+        }
+
+        .cd {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>영화정보</h3>
+    <div id="result"></div>
+
+    <script src="2_jsonMovies.js"></script>
+
+    <script>
+        /*
+            dailyBoxOfficeList 가져와서 movieNm(영화제목) 만 찍어보자
+        */
+
+        // 경로가 너무 기니까 먼저 변수에 담아주자 (for문 조건식에 담는 대신)
+        let movieInfo = movie.boxOfficeResult.dailyBoxOfficeList;
+
+        for (let i = 0; i < movieInfo.length; i++) {
+            console.log(movieInfo[i].movieNm);
+        }
+
+
+        // // 이건 그냥 브라우저에 출력하기 위해 내가 옵셔널로 만든 거
+        // for (let i = 0; i < movieInfo.length; i++) {
+        //     document.getElementById("result").innerHTML +=
+        //         movieInfo[i].movieNm + "<br>";
+        // }
+
+
+        // 순위(rank), 제목(movieNm), 영화 대표코드(movieCd) 출력
+        for (let i = 0; i < movieInfo.length; i++) {
+            document.getElementById("result").innerHTML +=
+            `
+                <div>
+                    <span class="no">${movieInfo[i].rank} 위, </span>
+                    <span class="title">제목 : ${movieInfo[i].movieNm}, </span>
+                    <span class="cd">대표코드 : ${movieInfo[i].movieCd}</span>
+                </div>
+            `
+        }
+
+        // 3_movie-2.html 에서는 node 를 이용해서 똑같이 만들건데, 둘 중 편한 걸로 쓰면 됨.
+    </script>
+</body>
+
+</html>
