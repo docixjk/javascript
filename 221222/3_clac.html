@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>clac</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쪽지시험 5번 문제</title>
 </head>
 <body>
-  <input type="text" id="num1"> +
-  <input type="text" id="num2"> =
-  <input type="text" id="num3">
-  <button id="btn">결확</button>
-  <div id="result"></div>
-  <script>
-    //1~10사이의 난수를 만들어 num1 과 num2 에 넣어주는거
-    
-    btn.addEventListener("click",function(ev){
-      
-      num1.value = Math.floor(Math.random()*10)+1      
-      num2.value = Math.floor(Math.random()*10)+1
-      // num3.value = num1.value*1 + num2.value*1
-      //num3 입력값이 없으면 alert('입력') 실행후 return
+    <h3>쪽지시험 5번 문제</h3>
 
-      if(num3 == undefined){
-        alert('입력')
-        return
-      }else{
-        let result = num1.value*1 + parseInt(num2.value)
-        if(result == num3.value){
-          alert("맞다")
-        } else{
-          alert("틀림")
-        }
-      }
+    <!-- 이건 추가 된 내용 (문제 제출 버튼) -->
+    <button id="btnReset">문제 제출</button>
 
-    })
-  </script>
+    <input type="text" id="num1"> +
+    <input type="text" id="num2"> =
+    <input type="text" id="num3">
+    <button id="btn">결과 확인</button>
+
+    <script>
+        btn.addEventListener('click', function() {
+            let result = num1.value * 1 + parseInt(num2.value);
+
+
+            if(result == num3.value) {
+                alert('맞다!');
+            } else {
+                alert('틀리다!');
+            }
+        })
+
+
+        // 이건 추가된 내용
+        // btnReset 버튼을 클릭하면 1 ~ 10 사이의 난수를 생성하여 num1 과 num2 에 value 지정
+        btnReset.addEventListener('click', function() {
+            num1.value = Math.floor(Math.random() * 10) + 1;
+            num2.value = Math.floor(Math.random() * 10) + 1;
+        })
+
+            // 맞는지 틀린지는   btn 버튼(결과 확인 버튼) 누르면 나오니까 여기서 안해도 됨
+    </script>
 </body>
 </html>
