@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jsonmovies</title>
+  </head>
+  <body>
+    <h3>영화정보</h3>
+    <input id="day"><button id="btnSelect">쮸</button>
+    <div id="result"></div>
+    <script>
+      btnSelect.addEventListener('click',function(){
+        //input 태그 값 확인
+        if(day.value == null){
+          alert("날짜를 입력해주세요")
+        }else{
+          //객체 생성
+          let xhr = new XMLHttpRequest()
+          //콜백함수
+          xhr.onload = function(){callback(xhr)} 
+          //요청연결
+          let url = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=' + day.value
+          xhr.open("GET",url)
+          //요청전달
+          xhr.send()
+        }
+
+      })
+      
+      function callback(xhr) {
+        let movies = JSON.parse(xhr.response)
+        let movielist = movies.boxOfficeResult.dailyBoxOfficeList;
+        //result div 내용을 삭제
+        for (let i = 0; i < movielist.length; i++) {
+          // result.innerHTML += movielist[i].rank + "위 " + movielist[i].movieNm + "<br>" + "개봉일 :" + movielist[i].openDt + "<br>"
+          let movieset =
+          `<div>
+            <span class="rank"><strong>${movielist[i].rank}</span>위 </strong>
+            <span class="movieNm"><em>${movielist[i].movieNm}</em></span><br>
+            개봉일 : <span class="openDt">${movielist[i].openDt}</span>
+          </div>`;
+          result.innerHTML += movieset;
+          //문자 ---> innerHTML += '문자열'
+          //node ---> append(node)
+        }
+      }
+    </script>
+  </body>
+</html>

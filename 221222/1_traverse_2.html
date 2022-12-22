@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1_traverse_2.html</title>
+  <style>
+    td{
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td><button>조회</button></td> <!-- 앞의 노드를 알고 싶다 -->
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td><button>조회</button></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>6</td>
+      <td><button>조회</button></td>
+    </tr>
+  </table>
+  <script>
+    document.querySelector("table").addEventListener("click",function(ev){
+      //ev.target (이벤트가 발생한 기준)
+      //버튼을 클릭했으면 해당 버튼의 형들의 내용을 읽어주세요 ex) 1번 조회를 누르면 td 내용조회
+      let node = ev.target
+      if(node.nodeName == "BUTTON"){
+        let tds = node.closest("tr").children // 부모로 tr정하고 td를 자식으로 정함
+        for(let i=0; i<tds.length-1;i++){
+          console.log(tds[i].innerText)
+        }
+        //        본인     부모                형
+        let td1 = node.parentElement.previousElementSibling.innerText
+        //        조회     <tr>              <td>2
+        let td2 = node.parentElement.previousElementSibling.previousElementSibling.innerText
+        //        조회     <tr>              <td>2                  <td>1
+        console.log(td2,td1)
+      }
+
+    })
+  </script>
+</body>
+</html>
