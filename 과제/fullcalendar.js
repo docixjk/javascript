@@ -34,9 +34,9 @@ const makeCalendar = (date) => {
   document.querySelector(`.dateTitle`).innerText = `${currentYear}년 ${currentMonth}월`;
 }
 
-
+//현재 시간 변수에 넣기
 const date = new Date();
-
+//달력 함수에 현재 시간넣고 사용
 makeCalendar(date);
 
 // 이전달 이동
