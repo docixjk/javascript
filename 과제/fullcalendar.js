@@ -2,10 +2,11 @@
 const makeCalendar = (date) => {
   // 현재 년도와 월 받아오기
   const currentYear = new Date(date).getFullYear();
-  const currentMonth = new Date(date).getMonth() + 1;
+  const currentMonth = new Date(date).getMonth() + 1; // +1 이유는 0~11로 나오기때문
 
   // 첫날의 요일 구하기 - 초기 시작위치를 위해서
   const firstDay = new Date(date.setDate(1)).getDay();
+
   // 마지막 날짜 구하기
   const lastDay = new Date(currentYear, currentMonth, 0).getDate();
 
@@ -33,6 +34,8 @@ const makeCalendar = (date) => {
   document.querySelector(`.dateBoard`).innerHTML = htmlDummy;
   document.querySelector(`.dateTitle`).innerText = `${currentYear}년 ${currentMonth}월`;
 }
+
+
 
 //현재 시간 변수에 넣기
 const date = new Date();

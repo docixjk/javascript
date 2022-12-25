@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="img1" style="opacity: 0;"><img src="미니프로젝트 이미지/로아.jpg"></div>
+    <div id="img2" style="opacity: 0;"><img src="미니프로젝트 이미지/롤.png"></div>
+    <div id="img3" style="opacity: 0;"><img src="미니프로젝트 이미지/메플.jpg"></div>
+    <div id="img4" style="opacity: 0;"><img src="미니프로젝트 이미지/발로.jpg"></div>
+    <div id="img5" style="opacity: 0;"><img src="미니프로젝트 이미지/배그.jpg"></div>
+    <div id="img6" style="opacity: 0;"><img src="미니프로젝트 이미지/옵치.jpg"></div>
+    <div id="img7" style="opacity: 0;"><img src="미니프로젝트 이미지/피파.jpg"></div>
+
+    <script type="text/javascript">
+        // let imgArr = [
+        //                 img1,
+        //                 img2,
+        //                 img3,
+        //                 img4,
+        //                 img5,
+        //                 img6,
+        //                 img7
+        //                 ];
+        
+        let intervalID=0;
+        
+        img1.style.opacity=1;
+        intervalID = setInterval(hide,120);
+        function hide(){
+            let opac = img1.style.opacity;
+            console.log(opac);
+            if(opac>0) { img1.style.opacity -= 0.1; }
+            else {
+                clearInterval(intervalID);
+                // intervalID = setInterval(show,120);
+            }
+        }
+        // function show(){
+        //     let opac = img1.style.opacity;
+        //     img1.style.opacity=0;
+        //     console.log(opac);
+        //     if(opac<1) { img1.style.opacity += 0.1; }
+        //     else { clearInterval(intervalID); }
+        // }
+    
+    
+     
+        // //화면에서 사라지게 하는 함수
+        // function hide(){
+        //     var div = document.getElementById("img1");
+        //     opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
+            
+        //     if(opacity>0){
+        //         //Fade out 핵심 부분
+        //         opacity = opacity-0.1;
+        //         div.style.opacity=opacity;
+        //         //img.style.opacity=opacity;
+        //     }
+        //     else{
+        //         clearInterval(intervalID);
+        //     }
+        // }
+        
+        // //화면에 나타나게 하는 함수
+        // function show(){
+        //     var div = document.getElementById("img1");
+        //     opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
+            
+        //     if(opacity<1){
+        //         //Fade in 핵심 부분
+        //         opacity = opacity+0.1;
+        //         div.style.opacity=opacity;
+        //         //img.style.opacity=opacity;
+        //     }
+        //     else{
+        //         clearInterval(intervalID);
+        //     }
+        // }	 
+           
+        </script>
+</body>
+</html>
