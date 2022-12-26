@@ -1,285 +1,296 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>초기화면</title>
     <style>
-        *{box-sizing: border-box;}
-        img{
-            width: 100%;
-            height: 95%;
-            margin: 0 auto;
-            position: fixed;
-        }
+      * {
+        box-sizing: border-box;
+      }
+      img {
+        width: 100%;
+        height: 95%;
+        margin: 0 auto;
+        position: fixed;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- 이미지를 불러와서 슬라이드 형식으로 만든다 -->
-    
-    <div id="img1" style="opacity: 0;"><img src="미니프로젝트 이미지/로아.jpg"></div>
-    <div id="img2" style="opacity: 0;"><img src="미니프로젝트 이미지/롤.png"></div>
-    <div id="img3" style="opacity: 0;"><img src="미니프로젝트 이미지/메플.jpg"></div>
-    <div id="img4" style="opacity: 0;"><img src="미니프로젝트 이미지/발로.jpg"></div>
-    <div id="img5" style="opacity: 0;"><img src="미니프로젝트 이미지/배그.jpg"></div>
-    <div id="img6" style="opacity: 0;"><img src="미니프로젝트 이미지/옵치.jpg"></div>
-    <div id="img7" style="opacity: 0;"><img src="미니프로젝트 이미지/피파.jpg"></div>
-    
-    
 
+    <div id="img1" style="opacity: 0">
+      <img src="미니프로젝트 이미지/로아.jpg" />
+    </div>
+    <div id="img2" style="opacity: 0">
+      <img src="미니프로젝트 이미지/롤.png" />
+    </div>
+    <div id="img3" style="opacity: 0">
+      <img src="미니프로젝트 이미지/메플.jpg" />
+    </div>
+    <div id="img4" style="opacity: 0">
+      <img src="미니프로젝트 이미지/발로.jpg" />
+    </div>
+    <div id="img5" style="opacity: 0">
+      <img src="미니프로젝트 이미지/배그.jpg" />
+    </div>
+    <div id="img6" style="opacity: 0">
+      <img src="미니프로젝트 이미지/옵치.jpg" />
+    </div>
+    <div id="img7" style="opacity: 0">
+      <img src="미니프로젝트 이미지/피파.jpg" />
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript">
-        let opacity = 0;
-        let intervalID = 0;
-        
-        document.querySelector("#img1").style.opacity=1;
+      let opacity = 0;
+      let intervalID = 0;
 
-        intervalID = setInterval(hide,100);
+      document.querySelector("#img1").style.opacity = 1;
 
-        //화면에서 사라지게 하는 함수
-        function hide(){
-            
-            let div = document.getElementById("img1");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            if(opacity>0.2){
-                //Fade out 핵심 부분
-                
-                opacity = opacity-0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                
-                clearInterval(intervalID);
-                document.querySelector("#img2").style.opacity=0.3;
-                document.querySelector("#img1").style.opacity=0;
-                intervalID = setInterval(show,100);
-            }
+      intervalID = setInterval(hide, 100);
+
+      //화면에서 사라지게 하는 함수
+      function hide() {
+        let div = document.getElementById("img1");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+        if (opacity > 0.2) {
+          //Fade out 핵심 부분
+
+          opacity = opacity - 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          document.querySelector("#img2").style.opacity = 0.3;
+          document.querySelector("#img1").style.opacity = 0;
+          intervalID = setInterval(show, 100);
         }
-        
-        //화면에 나타나게 하는 함수
-        function show(){
-            let div = document.getElementById("img2");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            
-            if(opacity<1){
-                //Fade in 핵심 부분
-                
-                opacity = opacity+0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                clearInterval(intervalID);
-                intervalID = setInterval(hide1,100);
-            }
+      }
+
+      //화면에 나타나게 하는 함수
+      function show() {
+        let div = document.getElementById("img2");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+
+        if (opacity < 1) {
+          //Fade in 핵심 부분
+
+          opacity = opacity + 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          intervalID = setInterval(hide1, 100);
         }
-        function hide1(){
-            
-            let div = document.getElementById("img2");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            if(opacity>0.2){
-                //Fade out 핵심 부분
-                
-                opacity = opacity-0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                
-                clearInterval(intervalID);
-                document.querySelector("#img3").style.opacity=0.3;
-                document.querySelector("#img2").style.opacity=0;
-                intervalID = setInterval(show1,100);
-                
-            }
+      }
+      function hide1() {
+        let div = document.getElementById("img2");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+        if (opacity > 0.2) {
+          //Fade out 핵심 부분
+
+          opacity = opacity - 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          document.querySelector("#img3").style.opacity = 0.3;
+          document.querySelector("#img2").style.opacity = 0;
+          intervalID = setInterval(show1, 100);
         }
-        
-        //화면에 나타나게 하는 함수
-        function show1(){
-            let div = document.getElementById("img3");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            
-            if(opacity<1){
-                //Fade in 핵심 부분
-                
-                opacity = opacity+0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                clearInterval(intervalID);
-                intervalID = setInterval(hide2,100);
-            }
+      }
+
+      //화면에 나타나게 하는 함수
+      function show1() {
+        let div = document.getElementById("img3");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+
+        if (opacity < 1) {
+          //Fade in 핵심 부분
+
+          opacity = opacity + 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          intervalID = setInterval(hide2, 100);
         }
-        function hide2(){
-            
-            let div = document.getElementById("img3");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            if(opacity>0.2){
-                //Fade out 핵심 부분
-                
-                opacity = opacity-0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                
-                clearInterval(intervalID);
-                document.querySelector("#img4").style.opacity=0.3;
-                document.querySelector("#img3").style.opacity=0;
-                intervalID = setInterval(show2,100);
-                
-            }
+      }
+      function hide2() {
+        let div = document.getElementById("img3");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+        if (opacity > 0.2) {
+          //Fade out 핵심 부분
+
+          opacity = opacity - 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          document.querySelector("#img4").style.opacity = 0.3;
+          document.querySelector("#img3").style.opacity = 0;
+          intervalID = setInterval(show2, 100);
         }
-        
-        //화면에 나타나게 하는 함수
-        function show2(){
-            let div = document.getElementById("img4");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            
-            if(opacity<1){
-                //Fade in 핵심 부분
-                
-                opacity = opacity+0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                clearInterval(intervalID);
-                intervalID = setInterval(hide3,100);
-            }
+      }
+
+      //화면에 나타나게 하는 함수
+      function show2() {
+        let div = document.getElementById("img4");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+
+        if (opacity < 1) {
+          //Fade in 핵심 부분
+
+          opacity = opacity + 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          intervalID = setInterval(hide3, 100);
         }
-        function hide3(){
-            
-            let div = document.getElementById("img4");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            if(opacity>0.2){
-                //Fade out 핵심 부분
-                
-                opacity = opacity-0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                
-                clearInterval(intervalID);
-                document.querySelector("#img5").style.opacity=0.3;
-                document.querySelector("#img4").style.opacity=0;
-                intervalID = setInterval(show3,100);
-                
-            }
+      }
+      function hide3() {
+        let div = document.getElementById("img4");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+        if (opacity > 0.2) {
+          //Fade out 핵심 부분
+
+          opacity = opacity - 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          document.querySelector("#img5").style.opacity = 0.3;
+          document.querySelector("#img4").style.opacity = 0;
+          intervalID = setInterval(show3, 100);
         }
-        
-        //화면에 나타나게 하는 함수
-        function show3(){
-            let div = document.getElementById("img5");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            
-            if(opacity<1){
-                //Fade in 핵심 부분
-                
-                opacity = opacity+0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                clearInterval(intervalID);
-                intervalID = setInterval(hide4,100);
-            }
+      }
+
+      //화면에 나타나게 하는 함수
+      function show3() {
+        let div = document.getElementById("img5");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+
+        if (opacity < 1) {
+          //Fade in 핵심 부분
+
+          opacity = opacity + 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          intervalID = setInterval(hide4, 100);
         }
-        function hide4(){
-            
-            let div = document.getElementById("img5");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            if(opacity>0.2){
-                //Fade out 핵심 부분
-                
-                opacity = opacity-0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                
-                clearInterval(intervalID);
-                document.querySelector("#img6").style.opacity=0.3;
-                document.querySelector("#img5").style.opacity=0;
-                intervalID = setInterval(show4,100);
-                
-            }
+      }
+      function hide4() {
+        let div = document.getElementById("img5");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+        if (opacity > 0.2) {
+          //Fade out 핵심 부분
+
+          opacity = opacity - 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          document.querySelector("#img6").style.opacity = 0.3;
+          document.querySelector("#img5").style.opacity = 0;
+          intervalID = setInterval(show4, 100);
         }
-        
-        //화면에 나타나게 하는 함수
-        function show4(){
-            let div = document.getElementById("img6");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            
-            if(opacity<1){
-                //Fade in 핵심 부분
-                
-                opacity = opacity+0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                clearInterval(intervalID);
-                intervalID = setInterval(hide5,100);
-            }
+      }
+
+      //화면에 나타나게 하는 함수
+      function show4() {
+        let div = document.getElementById("img6");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+
+        if (opacity < 1) {
+          //Fade in 핵심 부분
+
+          opacity = opacity + 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          intervalID = setInterval(hide5, 100);
         }
-        function hide5(){
-            
-            let div = document.getElementById("img6");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            if(opacity>0.2){
-                //Fade out 핵심 부분
-                
-                opacity = opacity-0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                
-                clearInterval(intervalID);
-                document.querySelector("#img7").style.opacity=0.3;
-                document.querySelector("#img6").style.opacity=0;
-                intervalID = setInterval(show5,100);
-                
-            }
+      }
+      function hide5() {
+        let div = document.getElementById("img6");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+        if (opacity > 0.2) {
+          //Fade out 핵심 부분
+
+          opacity = opacity - 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          document.querySelector("#img7").style.opacity = 0.3;
+          document.querySelector("#img6").style.opacity = 0;
+          intervalID = setInterval(show5, 100);
         }
-        
-        //화면에 나타나게 하는 함수
-        function show5(){
-            let div = document.getElementById("img7");
-            opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
-            console.log(opacity)
-            
-            if(opacity<1){
-                //Fade in 핵심 부분
-                
-                opacity = opacity+0.1;
-                div.style.opacity=opacity;
-                // img.style.opacity=opacity;
-            }
-            else{
-                clearInterval(intervalID);
-                document.querySelector("#img1").style.opacity=0.3;
-                document.querySelector("#img7").style.opacity=0;
-                intervalID = setInterval(hide,100);
-            }
+      }
+
+      //화면에 나타나게 하는 함수
+      function show5() {
+        let div = document.getElementById("img7");
+        opacity = Number(
+          window.getComputedStyle(div).getPropertyValue("opacity")
+        );
+        console.log(opacity);
+
+        if (opacity < 1) {
+          //Fade in 핵심 부분
+
+          opacity = opacity + 0.1;
+          div.style.opacity = opacity;
+          // img.style.opacity=opacity;
+        } else {
+          clearInterval(intervalID);
+          document.querySelector("#img1").style.opacity = 1;
+          document.querySelector("#img7").style.opacity = 0;
+          intervalID = setInterval(hide, 100);
         }
-        
-        </script>
-        
-</body>
+      }
+    </script>
+  </body>
 </html>
