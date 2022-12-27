@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>commnents 관리</title>
+  </head>
+  <body>
+    <h3>commnents 관리</h3>
+    <form>
+      <!-- 각각 id를 주어 관리하기 편하게 함 -->
+      <input id="id" placeholder="id" />
+      <input id="body" placeholder="body" />
+      <!-- button type을 주지 않으면 submit으로 기본설정됨 -->
+      <button id="btnadd" type="button">commnents add</button><br />
+      <button onclick="selectComments()">commnents 조회</button>
+      <div id="Commentslist"></div>
+    </form>
+    <script>
+      selectComments();
+      //comments 등록 기능 , 직접이벤트
+      btnadd.addEventListener("click", insertComments);
+
+      //comments 삭제 기능 , 그룹(위임)이벤트
+      Commentslist.addEventListener("click", deleteComments);
+
+      function selectComments() {}
+      //Comments 삭제 - delete 방식  " /comments/1 "
+      function deleteComments(ev) {
+        let id = ev.target.getAttribute("data-id");
+        let url = "http://localhost:3000/comments/" + id;
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          selectComments();
+        };
+        xhr.open("delete", url);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send();
+      }
+
+      //Comments 등록 - post 방식, json 형식 파라미터
+      function insertComments() {
+        let url = "http://localhost:3000/Comments";
+        let data = {
+          id: parseInt(id.value),
+          body: body.value,
+        };
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          selectComments();
+        };
+        xhr.open("post", url);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(data));
+      }
+      //Comments 전체 조회 - get
+      function selectComments() {
+        let url = "http://localhost:3000/Comments";
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          console.log("요청완료");
+          const Comments = JSON.parse(xhr.responseText);
+          Commentslist.innerHTML = "";
+          for (let i = 0; i < Comments.length; i++) {
+            Commentslist.innerHTML += `<div>id : ${Comments[i].id}, body : ${Comments[i].body}
+              <button data-id="${Comments[i].id}">삭제</button></div>`;
+          }
+        };
+        xhr.open("get", url, false);
+        xhr.send();
+        console.log("요청시작");
+      }
+    </script>
+  </body>
+</html>

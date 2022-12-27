@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array.html</title>
+  </head>
+  <body>
+    <script>
+      //얕은복사, 깊은복사
+      let arr1 = ["사과", "바나나", { id: 1, name: "pack" }];
+      let arr2 = [...arr1]; //arr1만 쓰면 복사후 원본도 같이 수정됨
+      // [...] 을 사용하면 전체복사후 수정해도 원본은 변하지 않음
+      let arr3 = JSON.parse(JSON.stringify(arr1));
+      arr2[0] = "포도";
+      arr2[2].name = "choi";
+      arr3[0] = "딸기";
+      arr1[2].name = "lee";
+      console.table(arr1);
+      console.table(arr2);
+      console.table(arr3);
+      arr2.length = 0; //삭제
+      console.log("arr2", arr2);
+    </script>
+  </body>
+</html>

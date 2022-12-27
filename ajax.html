@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>post 관리</h3>
+    <form>
+      <!-- ajax 는 form 생략 가능 -->
+      <input id="id" placeholder="id" />
+      <input id="title" placeholder="title" />
+      <input id="author" placeholder="author" />
+      <button id="btnadd" type="button">post add</button><br />
+      <button onclick="selectPost()">post조회</button>
+      <div id="postlist"></div>
+    </form>
+    <script>
+      selectPost(); //hoisting (끌어올리기)
+      //post 등록 기능 , 직접이벤트
+      btnadd.addEventListener("click", insertPost);
+
+      //post 삭제 기능 , 그룹(위임)이벤트
+      postlist.addEventListener("click", deletePost);
+
+      //post 삭제 - delete 방식  " /posts/1 "
+      function deletePost(ev) {
+        let id = ev.target.getAttribute("data-id");
+        let url = "http://localhost:3000/posts/" + id;
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          selectPost();
+        };
+        xhr.open("delete", url);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send();
+      }
+
+      //post 등록 - post 방식, json 형식 파라미터
+      function insertPost() {
+        let url = "http://localhost:3000/posts";
+        //value 적는거 빼먹지 않기 !!!!
+        //input으로 입력값 받아서 추가 시킴
+        let data = {
+          id: parseInt(id.value),
+          title: title.value,
+          author: author.value,
+        };
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          selectPost();
+        };
+        xhr.open("post", url);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        //서버랑 주고 받을때 받는 형식이 json이다
+        xhr.send(JSON.stringify(data)); //queryString
+        //순서는 url을 받고 data가 될 입력값을 받아온다
+        //xhr 함수를 받아오고
+        //onload => open => send 순으로 실행한다
+      }
+      //post 전체 조회 - get
+      function selectPost() {
+        let url = "http://localhost:3000/posts";
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          console.log("요청완료");
+          const post = JSON.parse(xhr.responseText);
+          postlist.innerHTML = ""; //삭제하거나 추가할때 빈자리 지우기
+          for (let i = 0; i < post.length; i++) {
+            //title만 출력하게
+            postlist.innerHTML +=
+              //추가할때
+              `<div>id : ${post[i].id}, title : ${post[i].title}
+              <button data-id="${post[i].id}">삭제</button></div>`;
+          }
+        };
+        xhr.open("get", url, false); // url을 읽는다
+        xhr.send();
+        console.log("요청시작");
+      }
+    </script>
+  </body>
+</html>
