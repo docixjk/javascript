@@ -18,37 +18,93 @@
       #container {
         width: 100%;
         height: 100%;
+        background-image:url('미니프로젝트 이미지/backimg.jpg');
+        background-size: cover;
       }
       .nav {
-        width: 100%;
-        height: 30%;
-        font-size: 300%;
+        text-align: center;
+        font-size: 4vw;
+        line-height: 10vw;
+        width: 23%;
+        float: left;
+        height: 100%;
+        /* font-size: 300%; */
+        font-size: cover;
         font-family: "Gowun Dodum", sans-serif;
         font-family: "Monoton", cursive;
+        color: rgb(255, 255, 255);
+      }
+      #name{
+        display: flex;
+        justify-content:space-between ;
+      }
+      #listsum{
+        display: flex;
+        justify-content:space-between ;
+        text-align: center;
+      }
+      #listsum div{
+        width: 23%;
+      }
+      img{
+        border: 2px solid white;
+        border-radius: 10px;
+        width: 90%;
+        margin-bottom: 10px;
+        transition: all 0.2s linear;
+        height: 20%;
       }
     </style>
   </head>
   <body>
     <div id="container">
-      <div class="nav">
-        RPG
-        <div class="list"></div>
+      <div id="name">
+        <div class="nav">RPG</div>
+        <div class="nav">FPS / TPS</div>
+        <div class="nav">MOBA</div>
+        <div class="nav">SPORTS</div>
       </div>
-
-      <div class="nav">
-        FPS / TPS
-        <div class="list"></div>
-      </div>
-
-      <div class="nav">
-        MOBA
-        <div class="list"></div>
-      </div>
-
-      <div class="nav">
-        SPORTS
-        <div class="list"></div>
+      <div id="listsum">
+        <div class="rpglist">
+          <img class="selimg" src="RPG/로아1.jpg">
+          <img class="selimg" src="RPG/디아블로1.jpg">
+          <img class="selimg" src="RPG/메이플1.jpg">
+          <img class="selimg" src="RPG/테라1.jpg">
+        </div>
+        <div class="fpslist">
+          <img class="selimg" src="FPS/배그1.jpg">
+          <img class="selimg" src="FPS/배그1.jpg">
+          <img class="selimg" src="FPS/배그1.jpg">
+          <img class="selimg" src="FPS/배그1.jpg">
+        </div>
+        <div class="mobalist">
+          <img class="selimg" src="RPG/로아1.jpg">
+          <img class="selimg" src="RPG/로아2.jpg">
+          <img class="selimg" src="RPG/로아1.jpg">
+          <img class="selimg" src="RPG/로아2.jpg">
+        </div>
+        <div class="sportslist">
+          <img class="selimg" src="RPG/로아1.jpg">
+          <img class="selimg" src="RPG/로아2.jpg">
+          <img class="selimg" src="RPG/로아1.jpg">
+          <img class="selimg" src="RPG/로아2.jpg">
+        </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous"></script>
+    <script>
+      //jquery 이용 이미지들 클래스로 묶고
+      //hover(마우스 올리면) 함수 만들고
+      //this를 이용해서 해당 이미지의 css(style)의 넓이를 수정
+      $('.selimg').hover(function(){
+        $(this).css('width','95%');
+        $(this).css('height','23%');
+      },function(){
+        $(this).css('width','90%');
+        $(this).css('height','20%');
+      })
+    </script>
   </body>
 </html>
