@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>regularExpression.html</title>
+</head>
+<body>
+  <input id="txt">
+  <button type="button" id="btn">검사</button>
+  <script>
+    btn.addEventListener("click",function(){
+
+      //패턴 : 정규식 리터럴 (상수) \\
+      // let regexp = /^world$/; // /내용/ 포함한거 /^내용$/ 이것만 
+      // let regexp = /^[a-z]{3}$/; //[] 로 입력할 것 {} 수의 갯수
+      // let regexp = /^\d+$/; //\d 는 숫자 *{0,n} ?{0,1} +{1,n}
+      let regexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+      const re = regexp.test(txt.value) //test로 했을시 true false 결과 나옴
+      console.log(re)
+    })
+  </script>
+</body>
+</html>
