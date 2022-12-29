@@ -1,5 +1,3 @@
-
-
 let books = [//기본 테이블 배열 만들기
   { no: 'inbn0002', title: '스프링', writer: '김기자', price: 40000 },
   { no: 'inbn0003', title: '자바', writer: '이순신', price: 25000 },
@@ -50,7 +48,7 @@ btnadd.addEventListener("click", function (ev) {
     writer: writer.value,
     price: price.value
   }
-  if ( ! inCheck() ) {//입력 체크
+  if (!inCheck()) {//입력 체크
     return
   }
   books.push(addObj); //준비된 값을 배열에 추가 (뒤에 추가 됨)
