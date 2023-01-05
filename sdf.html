@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>바나나</div>
+    <div>사과</div>
+    <div>포도</div>
+    <div>키위</div>
+    <div>수박</div>
+  </body>
+  <script>
+    let div = document.querySelectorAll("div");
+    // for(let i=0;i<div.length;i++){}
+    for (const el of div) {
+      // console.log(i.innerHTML)
+    }
+    for (i in div) {
+      console.log(div[i].innerHTML);
+    }
+
+    let emps = [
+      { name: "kim", age: 20 },
+      { name: "park", age: 30 },
+      { name: "hong", age: 40 },
+    ];
+
+    for (const i of emps) {
+      console.log(i.name);
+    }
+  </script>
+</html>
